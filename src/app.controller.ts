@@ -7,6 +7,7 @@ export class AppController {
 
   @Post('/pay')
   pay(): PaymentResult {
+    // TODO: paymentService.pay 의 결과값을 리턴하도록 주석 해제
     // return this.paymentService.pay();
     return {} as PaymentResult;
   }
