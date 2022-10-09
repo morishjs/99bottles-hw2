@@ -1,5 +1,31 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/99bottles-hw2/src",
+  "monorepo": true,
+  "root": "apps/99bottles-hw2",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/99bottles-hw2/tsconfig.app.json"
+  },
+  "projects": {
+    "99bottles-hw2": {
+      "type": "application",
+      "root": "apps/99bottles-hw2",
+      "entryFile": "main",
+      "sourceRoot": "apps/99bottles-hw2/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/99bottles-hw2/tsconfig.app.json"
+      }
+    },
+    "payment-server": {
+      "type": "application",
+      "root": "apps/payment-server",
+      "entryFile": "main",
+      "sourceRoot": "apps/payment-server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/payment-server/tsconfig.app.json"
+      }
+    }
+  }
 }
