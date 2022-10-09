@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Post } from '@nestjs/common';
+import { PaymentResult } from './payment/payment.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post('/pay')
+  pay(): PaymentResult {
+    // return this.paymentService.pay();
+    return {} as PaymentResult;
   }
 }
