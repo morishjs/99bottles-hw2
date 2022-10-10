@@ -19,7 +19,16 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      // expect(appController.pay()).toBe('Hello World!');
+      expect(
+        appController.pay({
+          pg: 'toss',
+          timestamp: Date.now(),
+          purchase_amount: 10000,
+        }),
+      ).toBe({
+        orderName: 'toss',
+        purchaseAmount: 10000,
+      });
     });
   });
 });

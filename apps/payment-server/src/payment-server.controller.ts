@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import {
   KakaoPayResult,
   NaverPayResult,
@@ -6,22 +6,26 @@ import {
   TossResult,
 } from './payment-server.service';
 
+interface Request {
+  purchase_amount: number;
+}
+
 @Controller()
 export class PaymentServerController {
   constructor(private readonly paymentServerService: PaymentServerService) {}
 
-  @Post()
-  toss(): TossResult {
-    return this.paymentServerService.payByToss();
+  @Post('/toss')
+  toss(@Body() request: Request): TossResult {
+    return this.paymentServerService.payByToss(request.purchase_amount);
   }
 
-  @Post()
-  kakaoPay(): KakaoPayResult {
-    return this.paymentServerService.payByKakaoPay();
+  @Post('/kakaopay')
+  kakaoPay(@Body() request: Request): KakaoPayResult {
+    return this.paymentServerService.payByKakaoPay(request.purchase_amount);
   }
 
-  @Post()
-  naverPay(): NaverPayResult {
-    return this.paymentServerService.payByNaverPay();
+  @Post('/naverpay')
+  naverPay(@Body() request: Request): NaverPayResult {
+    return this.paymentServerService.payByNaverPay(request.purchase_amount);
   }
 }

@@ -3,7 +3,6 @@ import { OrderRequestDto } from '../app.controller';
 
 export interface PaymentResult {
   orderName: string;
-  timestamp: number;
   purchaseAmount: number;
 }
 

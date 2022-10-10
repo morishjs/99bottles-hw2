@@ -20,26 +20,26 @@ export interface KakaoPayResult {
 
 @Injectable()
 export class PaymentServerService {
-  payByToss(): TossResult {
+  payByToss(purchaseAmount: number): TossResult {
     return {
       orderName: 'Toss',
       timestamp: Date.now(),
-      purchaseAmount: 50000,
+      purchaseAmount: purchaseAmount,
     };
   }
 
-  payByKakaoPay(): KakaoPayResult {
+  payByKakaoPay(purchaseAmount: number): KakaoPayResult {
     return {
       OrderName: 'Kakao',
       Timestamp: Date.now(),
-      PurchaseAmount: 50000,
+      PurchaseAmount: purchaseAmount,
     };
   }
-  payByNaverPay(): NaverPayResult {
+  payByNaverPay(purchaseAmount: number): NaverPayResult {
     return {
       order_name: 'Naver',
       timestamp: Date.now(),
-      purchase_amount: 50000,
+      purchase_amount: purchaseAmount,
     };
   }
 }
