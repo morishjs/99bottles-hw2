@@ -24,6 +24,7 @@ describe('AppController', () => {
         timestamp: Date.now(),
         purchase_amount: 10000,
       });
+
       expect(result).toStrictEqual({
         orderName: 'toss',
         purchaseAmount: 10000,

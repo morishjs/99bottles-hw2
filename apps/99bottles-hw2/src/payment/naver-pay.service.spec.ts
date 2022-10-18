@@ -20,6 +20,7 @@ describe('NaverPayService', () => {
     const result = await service.pay({
       purchase_amount: 10000,
     });
+
     expect(result).toStrictEqual({
       orderName: 'naver',
       purchaseAmount: 10000,
