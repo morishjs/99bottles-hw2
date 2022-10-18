@@ -12,7 +12,16 @@ describe('KakaoPayService', () => {
     service = module.get<KakaoPayService>(KakaoPayService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('should be return kakaopay result', () => {
+    expect(
+      service.pay({
+        pg: 'kakaopay',
+        timestamp: Date.now(),
+        purchase_amount: 10000,
+      }),
+    ).toBe({
+      orderName: 'kakaopay',
+      purchaseAmount: 10000,
+    });
   });
 });

@@ -12,7 +12,16 @@ describe('TossService', () => {
     service = module.get<TossService>(TossService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('should be return toss result', () => {
+    expect(
+      service.pay({
+        pg: 'toss',
+        timestamp: Date.now(),
+        purchase_amount: 10000,
+      }),
+    ).toBe({
+      orderName: 'toss',
+      purchaseAmount: 10000,
+    });
   });
 });

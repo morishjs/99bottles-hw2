@@ -18,14 +18,13 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(
-        appController.pay({
-          pg: 'toss',
-          timestamp: Date.now(),
-          purchase_amount: 10000,
-        }),
-      ).toBe({
+    it('should return toss result', async () => {
+      const result = await appController.pay({
+        pg: 'toss',
+        timestamp: Date.now(),
+        purchase_amount: 10000,
+      });
+      expect(result)?.toBe({
         orderName: 'toss',
         purchaseAmount: 10000,
       });

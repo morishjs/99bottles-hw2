@@ -12,7 +12,16 @@ describe('NaverPayService', () => {
     service = module.get<NaverPayService>(NaverPayService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('should be return naverpay result', () => {
+    expect(
+      service.pay({
+        pg: 'naverpay',
+        timestamp: Date.now(),
+        purchase_amount: 10000,
+      }),
+    ).toBe({
+      orderName: 'naverpay',
+      purchaseAmount: 10000,
+    });
   });
 });
