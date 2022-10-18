@@ -15,4 +15,14 @@ describe('KakaoPayService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should return pay result', async () => {
+    const result = await service.pay({
+      purchase_amount: 10000,
+    });
+    expect(result).toStrictEqual({
+      orderName: 'kakao',
+      purchaseAmount: 10000,
+    });
+  });
 });
