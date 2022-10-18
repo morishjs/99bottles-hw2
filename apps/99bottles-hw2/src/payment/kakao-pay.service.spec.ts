@@ -16,7 +16,7 @@ describe('KakaoPayService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return pay result', async () => {
+  it('should return appropriately modified response', async () => {
     const result = await service.pay({
       purchase_amount: 10000,
     });

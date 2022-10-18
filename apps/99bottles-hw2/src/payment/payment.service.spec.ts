@@ -16,15 +16,13 @@ describe('PaymentService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should return pay result', async () => {
+  it('should return toss payment pay result', async () => {
     const result = await service.pay({
       pg: 'toss',
       timestamp: Date.now(),
       purchase_amount: 10000,
     });
-    expect(result).toStrictEqual({
-      orderName: 'toss',
-      purchaseAmount: 10000,
-    });
+
+    expect(result).toHaveProperty('orderName', 'toss');
   });
 });
